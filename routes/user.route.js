@@ -6,6 +6,6 @@ router.post('/login', loginUser);
 
 
 // POST a new user
-router.post('/', createUser);
+router.post('/create-user', createUser);
 
 module.exports = router;

@@ -1,7 +1,6 @@
 // index.js
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const connectDB = require('./config/db');
 
 const app = express();
@@ -10,7 +9,9 @@ const app = express();
 connectDB();
 
 // Middleware
+const cors = require('cors');
 app.use(cors());
+
 app.use(express.json());
 
 // Routes
@@ -20,6 +21,9 @@ app.use('/api/users', userRoutes);
 const blogRoutes = require('./routes/blog.route.js');
 app.use('/api/blogs', blogRoutes);
 // app.use('/api/auth', authRoutes);
+
+const uploadRoutes = require('./routes/upload.route.js');
+app.use('/api/upload', uploadRoutes);
 
 // Default route
 app.get('/', (req, res) => {

@@ -7,17 +7,15 @@ const blogSchema = new mongoose.Schema({
     trim: true,
   },
   image: {
-    type: String, 
+    type: String,
     required: false,
   },
   content: {
     type: String,
     required: true,
   },
-  dates: {
-    type: Date,
-    default: Date.now,
-  },
+}, {
+  timestamps: true // This adds createdAt and updatedAt fields automatically
 });
 
 const Blog = mongoose.model('Blog', blogSchema);
